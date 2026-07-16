@@ -1,0 +1,43 @@
+{% extends 'inventory/base.html' %}
+{% block content %}
+
+    <h2>Supplier List</h2>
+
+    <table class="table table-bordered table-striped">
+
+        <tr>
+            <th>ID</th>
+            <th>Supplier Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for supplier in suppliers %}
+        <tr>
+            <td>{{ supplier.id }}</td>
+            <td>{{ supplier.supplier_name }}</td>
+            <td>{{ supplier.phone }}</td>
+            <td>{{ supplier.email }}</td>
+            <td>{{ supplier.address }}</td>
+
+            <td>
+                <a href="/supplier/update/{{supplier.id}}/"
+                   class="btn btn-warning btn-sm">
+                   Edit
+                </a>
+
+                <a href="/supplier/delete/{{supplier.id}}/"
+                   class="btn btn-danger btn-sm">
+                   Delete
+                </a>
+            </td>
+
+        </tr>
+        {% endfor %}
+
+    </table>
+
+
+{% endblock %}

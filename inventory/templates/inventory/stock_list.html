@@ -1,0 +1,31 @@
+{% extends 'inventory/base.html' %}
+{% block content %}
+
+    <h2 class="mb-4">Stock List</h2>
+
+    <table class="table table-bordered table-striped table-hover shadow">
+
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for stock in stocks %}
+            <tr>
+                <td>{{ stock.id }}</td>
+                <td>{{ stock.product }}</td>
+                <td>{{ stock.quantity }}</td>
+                <td>{{ stock.date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

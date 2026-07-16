@@ -1,0 +1,152 @@
+
+{% extends 'inventory/base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h1 class="text-center fw-bold mb-5">
+        Inventory Management Dashboard
+    </h1>
+
+    <!-- Dashboard Cards -->
+    <div class="row g-4">
+
+        <div class="col">
+            <div class="card bg-primary text-white shadow border-0">
+                <div class="card-body text-center py-4">
+                    <h1>{{ category_count }}</h1>
+                    <h4>Categories</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card bg-success text-white shadow border-0">
+                <div class="card-body text-center py-4">
+                    <h1>{{ product_count }}</h1>
+                    <h4>Products</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card bg-warning text-dark shadow border-0">
+                <div class="card-body text-center py-4">
+                    <h1>{{ supplier_count }}</h1>
+                    <h4>Suppliers</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card bg-danger text-white shadow border-0">
+                <div class="card-body text-center py-4">
+                    <h1>{{ stock_count }}</h1>
+                    <h4>Stock Entries</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card bg-secondary text-white shadow border-0">
+                <div class="card-body text-center py-4">
+                    <h1>{{ stockout_count }}</h1>
+                    <h4>Stock Out</h4>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <hr class="my-5">
+
+    <!-- Low Stock Products -->
+    <h2 class="mb-3">Low Stock Products</h2>
+
+    <div class="table-responsive">
+
+        <table class="table table-bordered table-hover">
+
+            <thead class="table-dark">
+
+                <tr>
+                    <th>ID</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for product in low_stock_products %}
+
+                <tr>
+
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.product_name }}</td>
+
+                    <td>
+
+                        <span class="badge bg-danger fs-6">
+
+                            {{ product.quantity }}
+
+                        </span>
+
+                    </td>
+
+                </tr>
+
+                {% empty %}
+
+                <tr>
+
+                    <td colspan="3" class="text-center text-success fw-bold">
+
+                        No Low Stock Products
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <hr class="my-4">
+
+    <!-- Action Buttons -->
+
+    <div class="d-flex flex-wrap gap-3">
+
+        <a href="/category/add/" class="btn btn-primary btn-lg">
+            Add Category
+        </a>
+
+        <a href="/product/add/" class="btn btn-success btn-lg">
+            Add Product
+        </a>
+
+        <a href="/supplier/add/" class="btn btn-warning btn-lg">
+            Add Supplier
+        </a>
+
+        <a href="/stock/add/" class="btn btn-info btn-lg text-white">
+            Stock In
+        </a>
+
+        <a href="/stockout/add/" class="btn btn-danger btn-lg">
+            Stock Out
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
