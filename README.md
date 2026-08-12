@@ -10,7 +10,7 @@ It helps manage products, categories, suppliers, stock and inventory details eff
 - HTML
 - CSS
 - Bootstrap
-- SQLite / PostgreSQL
+- SQLite 
 
 ## Features
 - User-friendly dashboard
