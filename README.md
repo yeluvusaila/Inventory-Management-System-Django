@@ -34,3 +34,21 @@ The project contains Django apps, templates, static files and database configura
 
 ## Author
 Yeluvu Saila
+
+
+## Screenshots
+
+### Dashboard
+![Dashboard](./Dashboard.png)
+
+### Products
+![Products](./Products.png)
+
+### Stock In
+![Stock In](./Stockin.png)
+
+### Stock Out
+![Stock Out](./Stockout.png)
+
+### Suppliers
+![Suppliers](./Suppliers.png)
